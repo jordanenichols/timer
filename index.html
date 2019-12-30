@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> yuh </title>
+    <style>
+      .yuh
+      {
+        font-family:  Arial, Arial, Helvetica, sans-serif;
+        font-size:    256px;
+        font-weight:  bold;
+        width: 300px;
+        width: 300px;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    </style>
+</head>
+<body>
+  <div class="yuh" id="demo" align="center" style="color:red"></div>
+
+<script>
+// Set the date we're counting down to
+var y = new Date().getTime();
+var time = new Date(y + 300000);
+
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+  demo.onclick = function(event) {
+  var y = new Date().getTime();
+  time = new Date(y + 300000);
+  }
+  var now = new Date().getTime();
+  var distance = time - now;
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+  document.getElementById("demo").innerHTML = minutes + ":" + seconds;
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+</body>
+</html>
